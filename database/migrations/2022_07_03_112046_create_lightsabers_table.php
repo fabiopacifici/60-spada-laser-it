@@ -15,6 +15,12 @@ class CreateLightsabersTable extends Migration
     {
         Schema::create('lightsabers', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->unique();
+            $table->string('slug');
+            $table->decimal('price', 5, 2)->nullable();
+            $table->text('description')->nullable();
+            $table->smallInteger('qty')->nullable();
+            $table->string('thumb')->nullable();
             $table->timestamps();
         });
     }

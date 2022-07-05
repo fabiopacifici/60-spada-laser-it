@@ -1,5 +1,5 @@
 <header class="d-flex align-items-center flex-column position-absolute w-100">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark w-100 py-0">
+    <nav class="navbar navbar-expand-md navbar-dark bg-transparent w-100 py-0">
         <!-- Right Side Of Navbar -->
         <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
@@ -32,11 +32,12 @@
             @endguest
         </ul>
     </nav>
-    <div class="logo">
+    <!-- <div class="logo">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img height="80" src="{{asset('img/logo.webp')}}" alt="">
         </a>
-    </div>
+    </div> -->
+    <logo-component tall="80" route="{{ url('/') }}" logo="{{asset('img/logo.webp')}}"></logo-component>
     <nav class="navbar navbar-expand-md navbar-dark bg-transparent">
         <div class="container">
 

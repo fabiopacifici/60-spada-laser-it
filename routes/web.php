@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'Guest\PageController@index')->name('home');
+/* Route::get('/collections/spada-laser', 'Guest\LightsablerContoller@spada_laser')->name('spada.standard');
+Route::get('/collections/spada-laser-legendary', 'Guest\LightsablerContoller@legendary')->name('spada.legendary'); */
+
+Auth::routes(['register' => false]);
+
+
+Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', 'HomeController@index')->name('dashbard');
+    Route::resource('lightsabers', LightsaberController::class);
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

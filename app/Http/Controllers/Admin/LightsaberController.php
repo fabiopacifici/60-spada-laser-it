@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Lightsaber;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class LightsaberController extends Controller
 {
@@ -14,7 +15,8 @@ class LightsaberController extends Controller
      */
     public function index()
     {
-        //
+        $sabers = Lightsaber::orderByDesc('id')->paginate(10);
+        return view('admin.sabers.index', compact('sabers'));
     }
 
     /**
